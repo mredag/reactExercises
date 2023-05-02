@@ -1,19 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Welcome from './welcome';
 
-class Welcome extends Component {
-  render() {
-    const { name, age } = this.props;
-    return (
-      <div>
-        <p>Welcome, {name}!</p>
-        <p>Your age is {age}.</p>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <Welcome name={<strong>Emre Doe</strong>} age={29} />
+    </div>
+  );
 }
 
-Welcome.defaultProps = {
-  name: 'DefaultName'
-};
-
-export default Welcome;
+export default App;
