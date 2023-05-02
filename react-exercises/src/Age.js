@@ -1,7 +1,11 @@
 import React from 'react';
 
 const Age = (props) => {
-  return <p>Your age is {props.age}.</p>;
+  return (
+    <p>
+      {props.age > 18 ? `Your age is ${props.age}.` : 'You are very young!'}
+    </p>
+  );
 };
 
 export default Age;
