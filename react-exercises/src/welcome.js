@@ -7,14 +7,14 @@ class Welcome extends Component {
     return (
       <div>
         <p>Welcome, {name}!</p>
-        {age > 18 && age < 65 && <Age age={age} />}
+        {age > 18 && age < 65 && name === "John" && <Age age={age} />}
       </div>
     );
   }
 }
 
 Welcome.defaultProps = {
-  name: 'Default name'
+  name: 'Guest'
 };
 
 export default Welcome;
