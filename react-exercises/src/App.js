@@ -1,12 +1,12 @@
 import React from 'react';
-import Welcome from './welcome';
+import Counter from './Counter';
 
 function App() {
-    return (
-      <div className="App">
-        <Welcome name={<strong>Emre Doe</strong>} age={19} />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <Counter />
+    </div>
+  );
+}
 
 export default App;
