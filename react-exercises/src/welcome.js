@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 
 class Welcome extends Component {
   render() {
-    const { name } = this.props;
+    const { name, age } = this.props;
     return (
       <div>
         <p>Welcome, {name}!</p>
+        <p>Your age is {age}.</p>
       </div>
     );
   }
 }
 
 Welcome.defaultProps = {
-  name: 'Emre'
+  name: 'DefaultName'
 };
 
 export default Welcome;

@@ -4,7 +4,7 @@ import Welcome from './welcome';
 function App() {
   return (
     <div className="App">
-      <Welcome/>
+      <Welcome name="Emre Dag" age={29} />
     </div>
   );
 }
