@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function TodoList() {
+function TodoList({ render }) {
   const [items, setItems] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
@@ -22,14 +22,7 @@ function TodoList() {
 
   return (
     <div>
-      <ul>
-        {items.map((item, index) => (
-          <li key={index}>
-            {item}{' '}
-            <button onClick={() => handleRemoveItem(index)}>Remove</button>
-          </li>
-        ))}
-      </ul>
+      {render(items, handleRemoveItem)}
       <input
         type="text"
         value={inputValue}
