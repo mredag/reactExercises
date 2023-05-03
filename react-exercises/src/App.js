@@ -1,10 +1,10 @@
 import React from 'react';
-import ClickCounter from './ClickCounter';
+import ClickTracker from './ClickTracker';
 
 function App() {
   return (
     <div className="App">
-      <ClickCounter />
+      <ClickTracker />
     </div>
   );
 }
