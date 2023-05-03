@@ -1,10 +1,10 @@
 import React from 'react';
-import ClickTracker from './ClickTracker';
+import InteractiveWelcome from './InteractiveWelcome';
 
 function App() {
   return (
     <div className="App">
-      <ClickTracker />
+      <InteractiveWelcome />
     </div>
   );
 }
