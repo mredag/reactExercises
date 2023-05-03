@@ -11,8 +11,12 @@ function TodoList() {
   const handleAddItem = () => {
     if (inputValue.trim()) {
       setItems([...items, inputValue]);
-      setInputValue(''); // This line clears the input value
+      setInputValue('');
     }
+  };
+
+  const handleReset = () => {
+    setItems([]);
   };
 
   return (
@@ -29,6 +33,7 @@ function TodoList() {
         placeholder="Enter a todo item"
       />
       <button onClick={handleAddItem}>Add Item</button>
+      <button onClick={handleReset}>Reset</button>
     </div>
   );
 }
