@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Login from './Login';
+import UncontrolledLogin from './UncontrolledLogin';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <Login onLogin={handleLogin} />
+      <UncontrolledLogin onLogin={handleLogin} />
       {message && <p>{message}</p>}
     </div>
   );
