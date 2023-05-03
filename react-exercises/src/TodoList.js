@@ -15,15 +15,19 @@ function TodoList() {
     }
   };
 
-  const handleReset = () => {
-    setItems([]);
+  const handleRemoveItem = (indexToRemove) => {
+    const newItems = items.filter((_, index) => index !== indexToRemove);
+    setItems(newItems);
   };
 
   return (
     <div>
       <ul>
         {items.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>
+            {item}{' '}
+            <button onClick={() => handleRemoveItem(index)}>Remove</button>
+          </li>
         ))}
       </ul>
       <input
@@ -33,7 +37,6 @@ function TodoList() {
         placeholder="Enter a todo item"
       />
       <button onClick={handleAddItem}>Add Item</button>
-      <button onClick={handleReset}>Reset</button>
     </div>
   );
 }
