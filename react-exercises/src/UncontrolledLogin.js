@@ -7,6 +7,10 @@ class UncontrolledLogin extends Component {
     this.passwordInput = React.createRef();
   }
 
+  componentDidMount() {
+    this.usernameInput.current.focus();
+  }
+
   handleSubmit = () => {
     const credentials = {
       username: this.usernameInput.current.value,
