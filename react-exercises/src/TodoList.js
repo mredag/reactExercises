@@ -11,7 +11,7 @@ function TodoList() {
   const handleAddItem = () => {
     if (inputValue.trim()) {
       setItems([...items, inputValue]);
-      setInputValue('');
+      setInputValue(''); // This line clears the input value
     }
   };
 
