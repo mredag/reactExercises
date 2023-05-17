@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
-import GithubUser from './GithubUser'; 
-import GithubUserList from './GithubUserList';
-import CounterComponent from './CounterComponent';
+import React from 'react';
+import FilteredList from './FilteredList';
 
 function App() {
-  const [username, setUsername] = useState("");
-
-  const handleChange = event => {
-    setUsername(event.target.value);
-  };
+  const people = [
+    { id: 1, name: 'John Doe', age: 22 },
+    { id: 2, name: 'Jane Doe', age: 16 },
+    { id: 3, name: 'Jim Doe', age: 45 },
+    { id: 4, name: 'Jill Doe', age: 17 },
+    { id: 5, name: 'Joe Doe', age: 25 },
+  ];
 
   return (
     <div>
-      <CounterComponent/>
+      <h1>Filtered People List:</h1>
+      <FilteredList list={people} />
     </div>
   );
 }
