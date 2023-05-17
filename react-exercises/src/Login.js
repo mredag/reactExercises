@@ -1,56 +1,51 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: ''
-    };
-  }
+function Login({ onLogin }) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [remember, setRemember] = useState(false);
 
-  handleInputChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
   };
 
-  handleSubmit = () => {
-    this.props.onLogin(this.state);
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
   };
 
-  handleReset = () => {
-    this.setState({
-      username: '',
-      password: ''
-    });
+  const handleRememberChange = (event) => {
+    setRemember(event.target.checked);
   };
 
-  render() {
-    return (
-      <div>
-        <input
-          type="text"
-          name="username"
-          value={this.state.username}
-          onChange={this.handleInputChange}
-          placeholder="Enter your username"
-        />
-        <input
-          type="password"
-          name="password"
-          value={this.state.password}
-          onChange={this.handleInputChange}
-          placeholder="Enter your password"
-        />
-        <button
-          onClick={this.handleSubmit}
-          disabled={!this.state.username || !this.state.password}
-        >
-          Login
-        </button>
-        <button onClick={this.handleReset}>Reset</button>
-      </div>
-    );
-  }
+  const handleLogin = () => {
+    if(username && password) {
+      onLogin({ username, password, remember });
+      setUsername('');
+      setPassword('');
+      setRemember(false);
+    } else {
+      alert("Username and Password cannot be empty");
+    }
+  };
+
+  const handleReset = () => {
+    setUsername('');
+    setPassword('');
+    setRemember(false);
+  };
+
+  return (
+    <div>
+      <input type="text" value={username} onChange={handleUsernameChange} placeholder="Username" />
+      <input type="password" value={password} onChange={handlePasswordChange} placeholder="Password" />
+      <label>
+        Remember me
+        <input type="checkbox" checked={remember} onChange={handleRememberChange} />
+      </label>
+      <button onClick={handleLogin} disabled={!username || !password}>Login</button>
+      <button onClick={handleReset}>Reset</button>
+    </div>
+  );
 }
 
 export default Login;
