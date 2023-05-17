@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import GithubUser from './GithubUser'; // Assuming GithubUser.js is in the same directory
+import GithubUser from './GithubUser'; 
+import GithubUserList from './GithubUserList';
 
 function App() {
   const [username, setUsername] = useState("");
@@ -13,6 +14,7 @@ function App() {
       <h1>App Component</h1>
       <input type="text" value={username} onChange={handleChange} placeholder="Enter Github username" />
       <GithubUser username={username} />
+      <GithubUserList/>
     </div>
   );
 }
