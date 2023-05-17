@@ -1,26 +1,25 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-class ClickCounter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0
-    };
-  }
+function ClickCounter({ onCounterChange }) {
+  const [count, setCount] = useState(0);
 
-  handleClick = () => {
-    this.setState((prevState) => ({ count: prevState.count + 1 }));
+  useEffect(() => {
+    // Call the onCounterChange function every time the count changes
+    onCounterChange(count);
+  }, [count]);
+
+  const handleClick = () => {
+    setCount(count + 1);
   };
 
-  render() {
-    return (
-      <div>
-        <p>Count: {this.state.count}</p>
-        <button onClick={this.handleClick}>Click me!</button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={handleClick}>
+        Click me
+      </button>
+    </div>
+  );
 }
 
 export default ClickCounter;
-// increment by 1 every time the user clicks the button.
