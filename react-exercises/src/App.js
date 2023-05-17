@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LoginForm from './LoginForm';
 import GithubUser from './GithubUser';
+import CarDetails from './CarDetails';
 
 function App() {
   const [username, setUsername] = useState("");
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <div>
-      <GithubUser/>
+      <CarDetails/>
     </div>
   );
 }
