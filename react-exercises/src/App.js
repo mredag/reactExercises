@@ -1,16 +1,18 @@
-import React from 'react';
-import ClickCounter from './ClickCounter';
+import React, { useState } from 'react';
+import GithubUser from './GithubUser'; // Assuming GithubUser.js is in the same directory
 
 function App() {
-  const handleCounterChange = (currentCount) => {
-    console.log(`The counter has changed to: ${currentCount}`);
-    // You can handle the counter change here
+  const [username, setUsername] = useState("");
+
+  const handleChange = event => {
+    setUsername(event.target.value);
   };
 
   return (
     <div>
       <h1>App Component</h1>
-      <ClickCounter onCounterChange={handleCounterChange} />
+      <input type="text" value={username} onChange={handleChange} placeholder="Enter Github username" />
+      <GithubUser username={username} />
     </div>
   );
 }
