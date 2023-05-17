@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import GithubUser from './GithubUser'; 
-import GithubUserList from './GithubUserList';
-import CounterComponent from './CounterComponent';
+import LoginForm from './LoginForm';
+import GithubUser from './GithubUser';
 
 function App() {
   const [username, setUsername] = useState("");
@@ -12,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <CounterComponent/>
+      <GithubUser/>
     </div>
   );
 }
