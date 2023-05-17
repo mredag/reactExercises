@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import LoginForm from './LoginForm';
-import GithubUser from './GithubUser';
-import CarDetails from './CarDetails';
+import DisplayLanguage from './DisplayLanguage';
+import LanguageContext from './LanguageContext';
 
 function App() {
-  const [username, setUsername] = useState("");
+  const [language, setLanguage] = useState('English');
 
-  const handleChange = event => {
-    setUsername(event.target.value);
+  const handleLanguageChange = (event) => {
+    setLanguage(event.target.value);
   };
 
   return (
-    <div>
-      <CarDetails/>
-    </div>
+    <LanguageContext.Provider value={language}>
+      <DisplayLanguage />
+      <select onChange={handleLanguageChange}>
+        <option value="English">English</option>
+        <option value="Spanish">Spanish</option>
+        <option value="French">French</option>
+        <option value="German">German</option>
+      </select>
+    </LanguageContext.Provider>
   );
 }
 
