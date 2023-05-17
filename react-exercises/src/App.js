@@ -1,23 +1,26 @@
-import React from 'react';
-import TodoList from './TodoList';
+import React, { useState } from 'react';
+import DisplayLanguage from './DisplayLanguage';
+import LanguageProvider from './LanguageProvider';
 
 function App() {
-  const renderItem = (item, index, handleRemoveItem) => (
-    <li key={index}>
-      {item} <button onClick={() => handleRemoveItem(index)}>Remove</button>
-    </li>
-  );
+  const [language, setLanguage] = useState('English');
 
-  const renderItems = (items, handleRemoveItem) => (
-    <ul>
-      {items.map((item, index) => renderItem(item, index, handleRemoveItem))}
-    </ul>
-  );
+  const handleLanguageChange = (event) => {
+    setLanguage(event.target.value);
+  };
 
   return (
     <div>
-      <h1>Todo List</h1>
-      <TodoList render={renderItems} />
+      <h1>Language Selector</h1>
+      <select value={language} onChange={handleLanguageChange}>
+        <option value="English">English</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Turkish">Turkish</option>
+        <option value="Emre">Emre</option>
+      </select>
+      <LanguageProvider language={language}>
+        <DisplayLanguage />
+      </LanguageProvider>
     </div>
   );
 }
