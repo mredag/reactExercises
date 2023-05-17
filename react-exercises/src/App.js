@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import GithubUser from './GithubUser'; 
 import GithubUserList from './GithubUserList';
+import CounterComponent from './CounterComponent';
 
 function App() {
   const [username, setUsername] = useState("");
@@ -11,10 +12,7 @@ function App() {
 
   return (
     <div>
-      <h1>App Component</h1>
-      <input type="text" value={username} onChange={handleChange} placeholder="Enter Github username" />
-      <GithubUser username={username} />
-      <GithubUserList/>
+      <CounterComponent/>
     </div>
   );
 }
